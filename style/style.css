@@ -16,3 +16,23 @@ body {
     align-items: center;
 }
 
+.body {
+
+}
+
+.tools {
+
+}
+
+.sketchpad-container {
+
+}
+
+.sketchpad {
+    width: 550px;
+    height: 550px;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
