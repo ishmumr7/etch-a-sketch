@@ -1,6 +1,6 @@
 const DEFAULT_SIZE = 20;
 const DEFAULT_COLOR = 'black';
-const DEFAULT_MODE = 'black';
+const DEFAULT_MODE = 'color';
 
 let size = DEFAULT_SIZE;
 let color = DEFAULT_COLOR;
@@ -37,8 +37,8 @@ function paint(e) {
     if (e.type === "mouseover" && !isClicked) {
         return;
     }
-    if (mode === 'black') {
-        this.style.backgroundColor = DEFAULT_COLOR;
+    if (mode === 'color') {
+        this.style.backgroundColor = color;
     }
     
 }
