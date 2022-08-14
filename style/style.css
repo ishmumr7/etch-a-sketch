@@ -9,7 +9,7 @@ body {
     font-size: 42px;
     font-weight: 500;
     height: 80px;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     color: #8e8d8a;
     display: flex;
     justify-content: center;
@@ -17,18 +17,41 @@ body {
 }
 
 .body {
-
+    font-family: 'Roboto', sans-serif;
+    padding: 1% 15%;
+    display: flex;
+    gap: 8em;
+    flex-wrap: wrap;
 }
 
 .tools {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
 }
 
-.sketchpad-container {
-
+.button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 8px 55px;
+    background: transparent;
+    border: 1px solid #6e6e6e;
+    border-radius: 10px;
+    transition: 0.3s;
 }
+
+.button:hover {
+    transform: scale(1.08);
+}
+
+/* .sketchpad-container {
+
+} */
 
 .sketchpad {
+    background: white;
     width: 550px;
     height: 550px;
     display: grid;
