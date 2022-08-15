@@ -90,6 +90,9 @@ function changeSize() {
     let input;
     while (true) {
         input = prompt('Enter number of squares: ');
+        if (input === undefined || input === null) {
+            break;
+        }
         if (isNaN(input)) {
             alert("Not a number!");
         } else if (input > 0 && input <= 100) {
