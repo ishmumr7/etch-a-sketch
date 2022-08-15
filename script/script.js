@@ -8,12 +8,14 @@ let mode = DEFAULT_MODE;
 
 let selectedColor = document.querySelector('#colorVal');
 let colorBtn = document.querySelector('#color');
+let random = document.querySelector('#random');
 let eraser = document.querySelector('#eraser');
 let clear = document.querySelector('#clear');
 let gridSize = document.querySelector('#grid-size');
 
 selectedColor.addEventListener('change', chooseColor);
 colorBtn.addEventListener('click', selectColor);
+random.addEventListener('click', selectRandom);
 eraser.addEventListener('click', selectEraser);
 clear.addEventListener('click', clearGrid);
 gridSize.addEventListener('click', changeSize);
@@ -68,15 +70,15 @@ function chooseColor() {
 }
 
 function selectColor() {
-    mode = 'color';
-}
-
-function selectEraser() {
-    mode = 'eraser';
+    selectCurrentMode('color');
 }
 
 function selectRandom () {
-    mode = 'random';
+    selectCurrentMode('random');
+}
+
+function selectEraser() {
+    selectCurrentMode('eraser');
 }
 
 function clearGrid() {
@@ -104,6 +106,26 @@ function changeSize() {
     }
     emptyGrid();
     createGrid(size);
+}
+
+function selectCurrentMode(newMode) {
+    if (mode === 'color') {
+        colorBtn.classList.remove('current');
+    } else if (mode === 'random') {
+        random.classList.remove('current');
+    } else if (mode === 'eraser') {
+        eraser.classList.remove('current');
+    }
+
+    mode = newMode;
+
+    if (mode === 'color') {
+        colorBtn.classList.add('current');
+    } else if (mode === 'random') {
+        random.classList.add('current');
+    } else if (mode === 'eraser') {
+        eraser.classList.add('current');
+    }
 }
 
 createGrid(size);
