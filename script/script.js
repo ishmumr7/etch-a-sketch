@@ -6,9 +6,13 @@ let size = DEFAULT_SIZE;
 let color = DEFAULT_COLOR;
 let mode = DEFAULT_MODE;
 
+let selectedColor = document.querySelector('#colorVal').value;
+let colorBtn = document.querySelector('#color');
+let eraser = document.querySelector('#eraser');
 let clear = document.querySelector('#clear');
 let gridSize = document.querySelector('#grid-size');
 
+eraser.addEventListener('click', selectEraser)
 clear.addEventListener('click', clearGrid)
 gridSize.addEventListener('click', changeSize);
 
@@ -53,6 +57,10 @@ function paint(e) {
 function emptyGrid() {
     let container = document.querySelector('.sketchpad-container');
     container.innerText = '';
+}
+
+function selectEraser() {
+    color = 'white';
 }
 
 function clearGrid() {
