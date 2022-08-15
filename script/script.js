@@ -6,14 +6,16 @@ let size = DEFAULT_SIZE;
 let color = DEFAULT_COLOR;
 let mode = DEFAULT_MODE;
 
-let selectedColor = document.querySelector('#colorVal').value;
+let selectedColor = document.querySelector('#colorVal');
 let colorBtn = document.querySelector('#color');
 let eraser = document.querySelector('#eraser');
 let clear = document.querySelector('#clear');
 let gridSize = document.querySelector('#grid-size');
 
-eraser.addEventListener('click', selectEraser)
-clear.addEventListener('click', clearGrid)
+selectedColor.addEventListener('change', chooseColor);
+colorBtn.addEventListener('click', selectColor);
+eraser.addEventListener('click', selectEraser);
+clear.addEventListener('click', clearGrid);
 gridSize.addEventListener('click', changeSize);
 
 let body = document.querySelector('.body');
@@ -31,7 +33,6 @@ function createGrid(size) {
     let sketchpad = document.createElement('div');
     sketchpad.setAttribute('class', 'sketchpad');
     sketchpad.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr)`);
-    // sketchpad.setAttribute('style', `grid-template-rows: repeat(${size}, 1fr)`);
 
     for (let i = 0; i < (size * size); i++) {
         let pixel = document.createElement('div');
@@ -51,6 +52,9 @@ function paint(e) {
     if (mode === 'color') {
         this.style.backgroundColor = color;
     }
+    if (mode === 'eraser') {
+        this.style.backgroundColor = 'white';
+    }
     
 }
 
@@ -59,8 +63,20 @@ function emptyGrid() {
     container.innerText = '';
 }
 
+function chooseColor() {
+    color = selectedColor.value;
+}
+
+function selectColor() {
+    mode = 'color';
+}
+
 function selectEraser() {
-    color = 'white';
+    mode = 'eraser';
+}
+
+function selectRandom () {
+    mode = 'random';
 }
 
 function clearGrid() {
@@ -83,7 +99,6 @@ function changeSize() {
             alert("Number must be between 1 and 100!");
         }
     }
-    console.log(size);
     emptyGrid();
     createGrid(size);
 }
