@@ -34,7 +34,8 @@ function createGrid(size) {
     const container = document.querySelector('.sketchpad-container');
     let sketchpad = document.createElement('div');
     sketchpad.setAttribute('class', 'sketchpad');
-    sketchpad.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr)`);
+    sketchpad.setAttribute('style',
+        `grid-template-columns: repeat(${size}, 1fr)`);
 
     for (let i = 0; i < (size * size); i++) {
         let pixel = document.createElement('div');
@@ -54,10 +55,13 @@ function paint(e) {
     if (mode === 'color') {
         this.style.backgroundColor = color;
     }
+    if (mode === 'random') {
+        let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        this.style.backgroundColor = randomColor;
+    }
     if (mode === 'eraser') {
         this.style.backgroundColor = 'white';
     }
-    
 }
 
 function emptyGrid() {
@@ -73,7 +77,7 @@ function selectColor() {
     selectCurrentMode('color');
 }
 
-function selectRandom () {
+function selectRandom() {
     selectCurrentMode('random');
 }
 
@@ -99,13 +103,13 @@ function changeSize() {
             alert("Not a number!");
         } else if (input > 0 && input <= 100) {
             size = parseInt(input);
+            emptyGrid();
+            createGrid(size);
             break;
         } else {
             alert("Number must be between 1 and 100!");
         }
     }
-    emptyGrid();
-    createGrid(size);
 }
 
 function selectCurrentMode(newMode) {
