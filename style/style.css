@@ -44,12 +44,17 @@ body {
     background: transparent;
     border: 1px solid #6e6e6e;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: 0.3s, color 0.1s;
 }
 
 .button:hover {
     transform: scale(1.08);
     border: 2px solid #6e6e6e;
+}
+
+.button:active {
+    background: #6e6e6e;
+    color: white
 }
 
 .current {
