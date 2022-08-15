@@ -16,6 +16,12 @@ body {
     align-items: center;
 }
 
+.body * {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
 .body {
     font-family: 'Roboto', sans-serif;
     padding: 1% 15%;
@@ -28,13 +34,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
 .button {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 300;
+    width: 185px;
     padding: 8px 55px;
     background: transparent;
     border: 1px solid #6e6e6e;
@@ -44,6 +49,41 @@ body {
 
 .button:hover {
     transform: scale(1.08);
+    border: 2px solid #6e6e6e;
+}
+
+.current {
+    transform: scale(1.1);
+    background: #6e6e6e;
+    color: white;
+}
+
+.color-pick {
+    width: 185px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.color-pick:hover {
+    transform: scale(1.1);
+}
+
+.color {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.color::-webkit-color-swatch {
+    border-radius: 50%;
 }
 
 /* .sketchpad-container {
