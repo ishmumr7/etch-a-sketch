@@ -19,7 +19,7 @@
 
     <div class="body">
         <div class="tools">
-            <div class="color-pick">
+            <div class="color-container">
                 <label for="colorVal">Color: </label>
                 <input class="color" id="colorVal" type="color">
             </div>
@@ -27,7 +27,11 @@
             <button class="button" id="random">Random</button>
             <button class="button" id="eraser">Eraser</button>
             <button class="button" id="clear">Clear</button>
-            <button class="button" id="grid-size">Grid Size</button>
+            <div class="gridsize-container">
+                <label for="grid-size">Grid Size:</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="grid-size">
+                <span id="size-show">15 x 15</span>
+            </div>
         </div>
 
         <div class="sketchpad-container">
