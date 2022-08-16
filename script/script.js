@@ -92,11 +92,10 @@ function clearGrid() {
 }
 
 function changeSize() {
-    let sizeShow = document.querySelector('#size-show');
     size = this.value;
     emptyGrid();
     createGrid(size);
-    sizeShow.innerText = size + " x " + size;
+    updateSizeShow();
 }
 
 function selectCurrentMode(newMode) {
@@ -119,10 +118,12 @@ function selectCurrentMode(newMode) {
     }
 }
 
+// Update grid size display
 function updateSizeShow() {
-    // Update grid size display
     let sizeShow = document.querySelector('#size-show');
     sizeShow.innerHTML = size + " x " + size;
+    
+    gridSize.value = size;
 }
 
 createGrid(size);
