@@ -32,6 +32,7 @@ body {
 }
 
 .tools {
+    width: 185px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,7 +41,7 @@ body {
 }
 
 .button {
-    width: 185px;
+    width: 100%;
     padding: 8px 55px;
     background: transparent;
     border: 1px solid #6e6e6e;
@@ -65,7 +66,7 @@ body {
 }
 
 .color-pick {
-    width: 185px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
