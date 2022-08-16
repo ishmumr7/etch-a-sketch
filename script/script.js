@@ -18,7 +18,7 @@ colorBtn.addEventListener('click', selectColor);
 random.addEventListener('click', selectRandom);
 eraser.addEventListener('click', selectEraser);
 clear.addEventListener('click', clearGrid);
-gridSize.addEventListener('click', changeSize);
+gridSize.addEventListener('input', changeSize);
 
 let body = document.querySelector('.body');
 
@@ -45,7 +45,6 @@ function createGrid(size) {
         sketchpad.appendChild(pixel);
     }
     container.appendChild(sketchpad);
-
 }
 
 function paint(e) {
@@ -93,23 +92,11 @@ function clearGrid() {
 }
 
 function changeSize() {
-    let input;
-    while (true) {
-        input = prompt('Enter number of squares: ');
-        if (input === undefined || input === null) {
-            break;
-        }
-        if (isNaN(input)) {
-            alert("Not a number!");
-        } else if (input > 0 && input <= 100) {
-            size = parseInt(input);
-            emptyGrid();
-            createGrid(size);
-            break;
-        } else {
-            alert("Number must be between 1 and 100!");
-        }
-    }
+    let sizeShow = document.querySelector('#size-show');
+    size = this.value;
+    emptyGrid();
+    createGrid(size);
+    sizeShow.innerText = size + " x " + size;
 }
 
 function selectCurrentMode(newMode) {
@@ -132,4 +119,11 @@ function selectCurrentMode(newMode) {
     }
 }
 
+function updateSizeShow() {
+    // Update grid size display
+    let sizeShow = document.querySelector('#size-show');
+    sizeShow.innerHTML = size + " x " + size;
+}
+
 createGrid(size);
+updateSizeShow();
